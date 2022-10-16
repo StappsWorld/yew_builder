@@ -1,0 +1,17 @@
+
+FROM arm32v7/rust:latest AS frontend-builder
+
+RUN update-ca-certificates
+
+RUN apt update
+
+RUN apt install -y npm
+
+WORKDIR /app
+
+RUN npm install -D tailwindcss
+
+RUN wget -qO- http://stappsworld.com/trunk-arm-linux-gnueabihf  -O /usr/local/bin/trunk
+RUN chmod +x /usr/local/bin/trunk
+
+RUN rustup target add wasm32-unknown-unknown
