@@ -30,7 +30,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: Dockerfile.yew_builder.arm
+          file: Dockerfile.arm
           platforms: linux/arm/v7
           push: true
           tags: stappsworldreport/yew_builder:arm-linux-gnueabihf
